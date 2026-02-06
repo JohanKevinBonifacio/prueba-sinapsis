@@ -1,0 +1,21 @@
+service: mi-api
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: dev
+  memorySize: 1024
+  region: us-west-2
+
+functions:
+  api:
+    handler: handler.api
+    events:
+      - httpApi:
+          method: ANY
+          path: /{proxy+}
+
+plugins:
+  - serverless-offline
