@@ -6,7 +6,7 @@ export const getMensajesProgramadosActivos = async (req, res) => {
     const { mes, idcliente } = req.query;
 
     if (!mes) {
-        return res.status(400).json({ message: 'Bad Request. Los parámetros son requeridos.' });
+        return res.status(404).json({ message: 'Bad Request. Los parámetros son requeridos.' });
     }
 
     try {
@@ -42,7 +42,7 @@ export const crearCampania = async (req, res) => {
     const { idCampania, nombre, idUsuario, fechaHoraProgramacion } = req.body;
 
     if (!idCampania || !nombre || !idUsuario || !fechaHoraProgramacion) {
-        return res.status(400).json({ message: 'Bad Request. Los parámetros son requeridos.' });
+        return res.status(404).json({ message: 'Bad Request. Los parámetros son requeridos.' });
     }
 
     try {
